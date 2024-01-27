@@ -24,6 +24,7 @@ $("#bar").click(function () {
 searchByName("");
 // ^_________________________search By Name______________________
 async function searchByName(Name) {
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
   let api = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${Name}`
@@ -49,6 +50,7 @@ function showData(data) {
 }
 // ~_________________________Get Category______________________
 async function GetAllCategory() {
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
   let api = await fetch(
     `https://www.themealdb.com/api/json/v1/1/categories.php`
@@ -81,6 +83,7 @@ $("#Category").click(function () {
 });
 // ?__________________Get All Area______________________
 async function GetAllArea() {
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
   let api = await fetch(
     `https://www.themealdb.com/api/json/v1/1/list.php?a=list`
@@ -106,10 +109,11 @@ function showArea(data) {
 </div>`;
   }
 document.getElementById("inputs").innerHTML = '';
-  document.getElementById("itemData").innerHTML = temp;
+document.getElementById("itemData").innerHTML = temp;
 }
 // ?__________________Get All Ingredients_________________
 async function GetAllIngredients() {
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
   let api = await fetch(
     `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
@@ -140,13 +144,14 @@ function showIngredients(data) {
 </div>`;
   }
 document.getElementById("inputs").innerHTML = "";
-  document.getElementById("itemData").innerHTML = temp;
+document.getElementById("itemData").innerHTML = temp;
 
 }
 // *__________________get Details_____________________
 async function getDetails(id){
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
-let api= await fetch(` http://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+let api= await fetch(` https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
 api=await api.json()
 $(".loading").addClass("d-none");
 showDetails(api.meals[0])
@@ -199,24 +204,27 @@ document.getElementById("itemData").innerHTML = temp;
 }
 // ?__________________Filter By Category_____________________
 async function getCategory(category){
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
-let api= await fetch(`http://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+let api= await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
 api=await api.json()
 $(".loading").addClass("d-none");
 showData(api.meals)
 }
 // &__________________Filter By ingredient_____________________
 async function getIngredient(ingredient){
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
-let api= await fetch(`http://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+let api= await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
 api=await api.json()
 $(".loading").addClass("d-none");
 showData(api.meals)
 }
 // ~__________________Filter By Area_____________________
 async function getArea(Area){
+  document.getElementById("itemData").innerHTML = "";
 $(".loading").removeClass("d-none");
-let api= await fetch(`http://www.themealdb.com/api/json/v1/1/filter.php?a=${Area}`)
+let api= await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${Area}`)
 api=await api.json()
 $(".loading").addClass("d-none");
 showData(api.meals)
@@ -240,6 +248,7 @@ $("#Search").click(function () {
 });
 //*___________________________Search by First Letter_____________________
 async function searchByFirstLetter(firstLetter) {
+  document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
  if(firstLetter){
   let api = await fetch(
