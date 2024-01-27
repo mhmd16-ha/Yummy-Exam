@@ -151,7 +151,7 @@ document.getElementById("itemData").innerHTML = temp;
 async function getDetails(id){
   document.getElementById("itemData").innerHTML = "";
   $(".loading").removeClass("d-none");
-let api= await fetch(` https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+let api= await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
 api=await api.json()
 $(".loading").addClass("d-none");
 showDetails(api.meals[0])
@@ -175,11 +175,11 @@ function showDetails(data){
  
   
 let temp=`
-<div class="col-4">
+<div class="col-md-4">
 <img src="${data.strMealThumb}" class="w-100 rounded"/>
 <h1 class="text-light">${data.strMeal}</h1>
 </div>
-<div class="col-8">
+<div class="col-md-8">
 <h2 class="text-light">Instructions</h2>
 <p class="text-light">${data.strInstructions}</p>
 <h3 class="text-light">Area :  ${data.strArea}</h3>
@@ -233,10 +233,10 @@ showData(api.meals)
 function showSearch(){
   closeSideBar()
 temp=
-`<div class="col-6">
+`<div class="col-md-6 py-2">
 <input onkeyup="searchByName(this.value)" type="text" class="form-control" placeholder="Search By Name" value=""/>
 </div>
-<div class="col-6">
+<div class="col-md-6 py-2">
 <input maxlength="1" onkeyup="searchByFirstLetter(this.value)" type="text" class="form-control" placeholder="Search By First Lettere" value=""/>
 </div>
 `
@@ -263,50 +263,47 @@ async function searchByFirstLetter(firstLetter) {
 function ContactUs(){
   closeSideBar()
 temp=
-`<div class="d-flex flex-column w-75 justify-content-center  m-auto p-3 vh-100">
-<div class="d-flex justify-content-around">
-<div class="col-6 m-3">
+`
+<div class="col-12 col-md-5 m-3">
 <input onkeyup="NameValidation()" type="text" class="form-control name" placeholder="Enter Your Name" value=""/>
 <div class="alert alert-danger mt-1 d-none nameAlert" role="alert">
 Special characters and numbers not allowed
 </div>
 </div>
-<div class="col-6 m-3">
+<div class="col-12 col-md-5 m-3">
 <input onkeyup="EmailValidation()" type="text" class="form-control email" placeholder="Enter Your Email" value=""/>
 <div class="alert alert-danger mt-1 d-none emailAlert" role="alert">
 Email not valid *exemple@yyy.zzz
 </div>
 </div>
-</div>
-<div class="d-flex justify-content-around">
-<div class="col-6 m-3">
+
+<div class="col-12 col-md-5 m-3">
 <input onkeyup="PhoneValidation()" type="phone" class="form-control phone" placeholder="Enter Your Phone" value=""/>
 <div class="alert alert-danger mt-1 d-none phoneAlert" role="alert">
 Enter valid Phone Number
 </div>
 </div>
-<div class="col-6 m-3">
+<div class="col-12 col-md-5 m-3">
 <input onkeyup="AgeValidation()"  type="number" class="form-control age" placeholder="Enter Your Age" value=""/>
 <div class="alert alert-danger mt-1 d-none ageAlert" role="alert">
 Enter valid age
 </div>
 </div>
-</div>
-<div class="d-flex justify-content-around">
-<div class="col-6 m-3">
+
+<div class="col-12 col-md-5 m-3">
 <input onkeyup="PasswordValidation()" type="password" class="form-control password" placeholder="Enter Your Password" value=""/>
 <div class="alert alert-danger mt-1 d-none passwordAlert" role="alert">
 Enter valid password *Minimum eight characters, at least one letter and one number:*
 </div>
 </div>
-<div class="col-6 m-3">
+<div class="col-12 col-md-5 m-3">
 <input onkeyup="RePasswordValidation()" type="password" class="form-control repassword" placeholder="Repassword" value=""/>
 <div class="alert alert-danger mt-1 d-none repasswordAlert" role="alert">
 Enter valid repassword
 </div>
 </div>
-</div>
-<button class="btn btn-outline-danger align-self-center" id="contactBtn" disabled>Submit</button>
+<div class="d-flex justify-content-center align-items-center col-md-11">
+<button class="btn btn-outline-danger" id="contactBtn" disabled>Submit</button>
 </div>
 `
 document.getElementById("inputs").innerHTML = temp;

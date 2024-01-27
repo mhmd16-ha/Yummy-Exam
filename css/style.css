@@ -90,4 +90,6 @@ i,.item{
    width: 25%;
   }
 }
-
+#contactBtn{
+  width: fit-content;
+}
