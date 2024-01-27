@@ -83,13 +83,13 @@ i,.item{
     width: 50%;
     background: #000;
    }
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
+} 
 @media only screen and (min-width: 600px) {
   .sideBar{
    width: 25%;
   }
 }
+
 #contactBtn{
   width: fit-content;
 }

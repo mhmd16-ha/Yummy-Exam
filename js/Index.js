@@ -264,46 +264,44 @@ function ContactUs(){
   closeSideBar()
 temp=
 `
-<div class="col-12 col-md-5 m-3">
-<input onkeyup="NameValidation()" type="text" class="form-control name" placeholder="Enter Your Name" value=""/>
+<div class="col-12 col-md-5 m-auto mt-3">
+<input onkeyup="NameValidation(),submitBtn()" type="text" class="form-control name" placeholder="Enter Your Name" value=""/>
 <div class="alert alert-danger mt-1 d-none nameAlert" role="alert">
 Special characters and numbers not allowed
 </div>
 </div>
-<div class="col-12 col-md-5 m-3">
-<input onkeyup="EmailValidation()" type="text" class="form-control email" placeholder="Enter Your Email" value=""/>
+<div class="col-12 col-md-5 m-auto mt-3">
+<input onkeyup="EmailValidation(),submitBtn()" type="text" class="form-control email" placeholder="Enter Your Email" value=""/>
 <div class="alert alert-danger mt-1 d-none emailAlert" role="alert">
 Email not valid *exemple@yyy.zzz
 </div>
 </div>
-
-<div class="col-12 col-md-5 m-3">
-<input onkeyup="PhoneValidation()" type="phone" class="form-control phone" placeholder="Enter Your Phone" value=""/>
+<div class="col-12 col-md-5 m-auto mt-3">
+<input onkeyup="PhoneValidation(),submitBtn()" type="phone" class="form-control phone" placeholder="Enter Your Phone" value=""/>
 <div class="alert alert-danger mt-1 d-none phoneAlert" role="alert">
 Enter valid Phone Number
 </div>
 </div>
-<div class="col-12 col-md-5 m-3">
-<input onkeyup="AgeValidation()"  type="number" class="form-control age" placeholder="Enter Your Age" value=""/>
+<div class="col-12 col-md-5 m-auto mt-3">
+<input onkeyup="AgeValidation(),submitBtn()"  type="number" class="form-control age" placeholder="Enter Your Age" value=""/>
 <div class="alert alert-danger mt-1 d-none ageAlert" role="alert">
 Enter valid age
 </div>
 </div>
-
-<div class="col-12 col-md-5 m-3">
-<input onkeyup="PasswordValidation()" type="password" class="form-control password" placeholder="Enter Your Password" value=""/>
+<div class="col-12 col-md-5 m-auto mt-3">
+<input onkeyup="PasswordValidation(),submitBtn()" type="password" class="form-control password" placeholder="Enter Your Password" value=""/>
 <div class="alert alert-danger mt-1 d-none passwordAlert" role="alert">
 Enter valid password *Minimum eight characters, at least one letter and one number:*
 </div>
 </div>
-<div class="col-12 col-md-5 m-3">
-<input onkeyup="RePasswordValidation()" type="password" class="form-control repassword" placeholder="Repassword" value=""/>
+<div class="col-12 col-md-5 m-auto mt-3">
+<input onkeyup="RePasswordValidation(),submitBtn()" type="password" class="form-control repassword" placeholder="Repassword" value=""/>
 <div class="alert alert-danger mt-1 d-none repasswordAlert" role="alert">
 Enter valid repassword
 </div>
 </div>
 <div class="d-flex justify-content-center align-items-center col-md-11">
-<button class="btn btn-outline-danger" id="contactBtn" disabled>Submit</button>
+<button class="btn btn-outline-danger mt-3" disabled id="contactBtn" >Submit</button>
 </div>
 `
 document.getElementById("inputs").innerHTML = temp;
@@ -318,6 +316,7 @@ let regex=/^([a-zA-Z_\s]+)$/;
 if(regex.test($(".name").val())){
   $(".nameAlert").addClass("d-none")
   return true;
+  
 }else{
   $(".nameAlert").removeClass("d-none")
   return false;
@@ -377,10 +376,12 @@ function RePasswordValidation(){
       return false; 
     }
     }
-function test(){
+function submitBtn(){
   if(NameValidation()&&EmailValidation()&&PhoneValidation()&&AgeValidation()&&PhoneValidation()&&PasswordValidation()&&RePasswordValidation()){
-    $("#contactBtn").attr("disabled",false)
-  }else{
     $("#contactBtn").removeAttr("disabled")
+  }else{
+    document.getElementById("contactBtn").setAttribute("disabled",true)
+
+    
   }
 }
